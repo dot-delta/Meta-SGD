@@ -4,16 +4,21 @@ from utils import data_points_sample
 
 class MetaSGD(object):
 
-    def __init__(self, num_tasks=2, num_samples=10, epochs=10000, alpha=.0001, beta=.0001):
+    def __init__(self,
+                 theta=np.random.normal(size=50).reshape(50, 1),
+                 alpha=np.random.normal(size=50).reshape(50, 1),
+                 num_tasks=2,
+                 num_samples=10,
+                 epochs=10000,
+                 beta=.0001):
+
         self.num_tasks = num_tasks
         self.num_samples = num_samples
         self.epochs = epochs
 
-        self.alpha = alpha
         self.beta = beta
-
-        self.theta = np.random.normal(size=50).reshape(50, 1)
-        self.alpha = np.random.normal(size=50).reshape(50, 1)
+        self.theta = theta
+        self.alpha = alpha
 
     def sigmoid(self, a):
         return 1.0 / (1 + np.exp(-a))
