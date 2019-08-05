@@ -63,7 +63,7 @@ class MetaSGD(object):
 
         for i in range(self.num_tasks):
             x_test, y_test = data_points_sample(10)
-            a = np.matmul(x_test, self.theta_[i])
+            a = np.matmul(x_test, theta_[i])
             y_pred = self.sigmoid(a)
 
             mat_sum = np.matmul(x_test.T, (y_pred - y_test))
